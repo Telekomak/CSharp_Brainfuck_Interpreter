@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="https://github.com/Telekomak/CSharp_Brainfuck_Interpreter.git" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="https://github.com/Telekomak/CSharp_Brainfuck_Interpreter.git">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/../../../../../Program Files/dotnet/sdk/6.0.100/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_6_default.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/BrainfuckInterpreter.sln" web="/" />
+            <mapping local="$PROJECT_DIR$/BrainfuckInterpreter/BrainfuckInterpreter.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/BrainfuckInterpreter/Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/BrainfuckInterpreter/obj/Debug/net6.0/BrainfuckInterpreter.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/BrainfuckInterpreter/obj/Debug/net6.0/BrainfuckInterpreter.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/BrainfuckInterpreter/obj/Debug/net6.0/BrainfuckInterpreter.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="07253a3a-281d-452a-abcc-5e0f8fd93555" name="https://github.com/Telekomak/CSharp_Brainfuck_Interpreter.git" url="https://github.com/Telekomak/CSharp_Brainfuck_Interpreter.git">
+        <fileTransfer accessType="LOCAL" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
