@@ -1,4 +1,4 @@
-﻿using System.Text;
+﻿namespace BrainfuckInterpreter;
 
 class Program
 {
@@ -7,7 +7,6 @@ class Program
     private static long _instructionPointer = 0;
     private static char[] _program = new char[0];
     private static bool _numericOutput = false;
-    private static bool _isLoopOpen = false;
 
     static void Main(string[] args)
     {
@@ -89,22 +88,18 @@ class Program
                     _array[_arrayPointer] = (byte)Console.Read();
                     break;
                 case '[':
-                    if (!GoToLoopEnd() || _isLoopOpen)
+                    if (!GoToLoopEnd())
                     {
                         error = $"BF ERROR [{_instructionPointer}]: Expected \"]\" after \"[\"!";
                         return false;
                     }
-
-                    _isLoopOpen = true;
                     break;
                 case ']':
-                    if (!GoToLoopStart() || !_isLoopOpen)
+                    if (!GoToLoopStart())
                     {
                         error = $"BF ERROR [{_instructionPointer}]: Expected \"[\" before \"]\"!";
                         return false;
                     }
-
-                    _isLoopOpen = false;
                     break;
                 case '\n':
                     break;
@@ -133,14 +128,24 @@ class Program
     {
         if (_array[_arrayPointer] != 0)
         {
+            int nestedLoops = 0;
             for (long i = _instructionPointer - 1; i >= 0; i--)
             {
                 if (_program[i] == '[')
                 {
-                    _instructionPointer += i - _instructionPointer;
-                    return true;
+                    if (nestedLoops == 0)
+                    {
+                        _instructionPointer += i - _instructionPointer;
+                        return true;
+                    }
+
+                    nestedLoops--;
                 }
-                if (_program[i] == ']') return false;
+
+                if (_program[i] == ']')
+                {
+                    nestedLoops++;
+                }
             }
 
             return false;
@@ -153,14 +158,24 @@ class Program
     {
         if (_array[_arrayPointer] == 0)
         {
+            int nestedLoops = 0;
             for (long i = _instructionPointer + 1; i < _program.Length; i++)
             {
                 if (_program[i] == ']')
                 {
-                    _instructionPointer = i + 1;
-                    return true;
+                    if (nestedLoops == 0)
+                    {
+                        _instructionPointer = i + 1;
+                        return true;    
+                    }
+
+                    nestedLoops--;
                 }
-                if (_program[i] == '[') return false;
+
+                if (_program[i] == '[')
+                {
+                    nestedLoops++;
+                }
             }
 
             return false;
